@@ -38,7 +38,11 @@ export const SocketProvider: React.FC<Props> = ({ children }) => {
     useEffect(() => {
 
         const userId = UUIDv4();
-        const newPeer = new Peer(userId);
+        const newPeer = new Peer(userId, {
+            host: "localhost",
+            port: 9000,
+            path: "/myapp"
+        });
 
         setUser(newPeer);
 
